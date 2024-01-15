@@ -1,10 +1,22 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Feed from "./pages/Feed";
+import Dashboard from "./pages/Dashboard";
+import Create from "./pages/Create";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/employer">
+          <Route path="/employer/dashboard" element={<Dashboard />} />
+          <Route path="/employer/create" element={<Create />} />
+        </Route>
+        <Route path="/employee/feed" element={<Feed />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
